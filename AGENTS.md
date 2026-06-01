@@ -19,7 +19,7 @@ and matches the extracted data against a billing Google Sheet.
 5. **ถ้าใช่** → ทำขั้นตอน A–D ตามลำดับ:
 
 **A. บันทึก PDF**
-บันทึกลง `~/oneauthen-payment/YYYY-MM/` ด้วย file-tools skill (`email-to-pdf`)
+บันทึกลง `$PAYMENT_OUTPUT_DIR/YYYY-MM/` ด้วย file-tools skill (`email-to-pdf`)
 
 **B. จับคู่ Google Sheet**
 

@@ -61,6 +61,7 @@ set -a && source ~/.openclaw/workspace/payment-analyzer/.env && set +a
 | `GSHEET_SPREADSHEET_ID` | ID จาก URL ของ Google Sheet |
 | `GSHEET_SHEET_NAME` | ชื่อ tab (default: Sheet1) |
 | `GSHEET_ACCOUNT` | Google account ที่ login ไว้ใน gog |
+| `PAYMENT_OUTPUT_DIR` | โฟลเดอร์เก็บ PDF หลักฐานการชำระเงิน (default: ~/oneauthen-payment) |
 
 ## Save Email as PDF (file-tools skill)
 
@@ -75,11 +76,11 @@ python3 $FILE_SKILL/scripts/email-to-pdf.py \
   --body     "<email_body_text>" \
   --attach   "<attachment_path_1>" \
   --attach   "<attachment_path_2>" \
-  --output-dir ~/oneauthen-payment
+  --output-dir "$PAYMENT_OUTPUT_DIR"
 ```
 
 - ชื่อไฟล์: `YYYY-MM-DD_<uid>_<subject>.pdf`
-- สร้างโฟลเดอร์ `~/oneauthen-payment/` อัตโนมัติถ้ายังไม่มี
+- สร้างโฟลเดอร์ `$PAYMENT_OUTPUT_DIR/` อัตโนมัติถ้ายังไม่มี
 - รวมเนื้อหาอีเมล + ทุก attachment ไว้ใน PDF เดียว
 - รูปภาพ → embed เป็น image page
 - PDF attachment → merge ต่อท้าย
@@ -97,6 +98,5 @@ rm -rf /tmp/payment-analyzer/*
 
 ```
 ~/.openclaw/workspace/payment-analyzer/memory/
-├── payment-results-YYYY-MM.md   ← monthly payment log
-└── YYYY-MM-DD.md                ← daily run log
+└── payment-YYYY-MM.log   ← monthly log
 ```
