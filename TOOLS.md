@@ -1,9 +1,9 @@
 # TOOLS.md — Payment Analyzer Tools
 
-## Email Tools (mail-inet skill)
+## Email Tools (mailkit skill)
 
 ```bash
-MAIL_SKILL=~/.openclaw/workspace/skills/mail-inet
+MAIL_SKILL=~/.openclaw/workspace/skills/mailkit
 
 # List unread emails
 node $MAIL_SKILL/scripts/list-emails.js --unread --limit 10
